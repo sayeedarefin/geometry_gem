@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Parallelogram shape card -->
+    <div class="card bg-base-100 w-96 shadow-xl">
+        <figure>
+          <img src="images/parallelogram.png" alt="Parallelogram" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Parallelogram</h2>
+          <p>Area (A) = b x h</p>
+          <div class="flex">
+            <!-- Input for base of the parallelogram -->
+            <div class="text-center">
+                <input class="w-24 text-2xl p-2 rounded-sm" type="text" id="Parallelogram-Base" placeholder="base">
+                <span class="mr-4 ml-2">cm</span>
+            </div>
+            <!-- Input for height of the parallelogram -->
+            <div class="text-center">
+                <input class="w-24 text-2xl p-2 rounded-sm" type="text" id="Parallelogram-Height" placeholder="height">
+                <span class="mr-4 ml-2">cm</span>
+            </div>
+          </div>
+          <div>
+            <!-- Display area of the parallelogram -->
+            <p class="text-2xl">Area= <span id="Parallelogram-Area"></span><span> cm<sup>2</sup></span></p>
+          </div>
+          <div class="card-actions justify-end">
+            <!-- Button to trigger area calculation -->
+            <button onclick="calculateParallelogramArea()" class="btn btn-primary w-full">Calculate</button>
+          </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Function to get the numeric value from an input field by its ID.
+         * 
+         * @param {string} inputFieldId - The ID of the input field to get the value from.
+         * @returns {number} - The numeric value parsed from the input field.
+         */
+        function getInputValueById(inputFieldId) {
+            // Get the input field element by its ID.
+            const inputField = document.getElementById(inputFieldId);
+            // Get the value entered in the input field as a string.
+            const inputTextValue = inputField.value;
+            // Convert the string value to a floating-point number.
+            const inputValue = parseFloat(inputTextValue);
+
+            // Return the numeric value.
+            return inputValue;
+        }
+
+        /**
+         * Function to display the calculated area in a specified element.
+         * 
+         * @param {string} elementId - The ID of the element where the area will be displayed.
+         * @param {number} area - The calculated area to display.
+         */
+        function displayFunction(elementId, area) {
+            // Get the HTML element by its ID where the area will be displayed.
+            const element = document.getElementById(elementId);
+            // Set the inner text of the element to the calculated area.
+            element.innerText = area;
+        }
+
+        /**
+         * Function to calculate the area of a parallelogram and display it.
+         */
+        function calculateParallelogramArea() {
+            // Get the value of the base from the input field using the getInputValueById function.
+            const base = getInputValueById('Parallelogram-Base');
+            console.log("base is ", base); // Log the base value for debugging purposes.
+
+            // Get the value of the height from the input field using the getInputValueById function.
+            const height = getInputValueById('Parallelogram-Height');
+            console.log("height is ", height); // Log the height value for debugging purposes.
+
+            // Calculate the area of the parallelogram using the formula: Area = base * height.
+            const area = base * height;
+            console.log("area is ", area); // Log the calculated area for debugging purposes.
+
+            // Display the calculated area in the element with ID 'Parallelogram-Area' using the displayFunction.
+            displayFunction('Parallelogram-Area', area);
+        }
+    </script>
+</body>
+</html>

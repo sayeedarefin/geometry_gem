@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Parallelogram shape -->
+    <div class="card bg-base-100 w-96 shadow-xl">
+        <figure>
+          <img
+            src="images/parallelogram.png"
+            alt="Shoes" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Parallelogram</h2>
+          <p>Area (A) = b x h</p>
+          <div class="flex">
+            <div class="text-center">
+                <input class="w-24 text-2xl p-2 rounded-sm" type="text" name="" id="Parallelogram-Base" placeholder="base">
+          <span class="mr-4 ml-2">cm</span>
+            </div>
+          <div class="text-center">
+            <input class="w-24 text-2xl p-2 rounded-sm" type="text" name="" id="Parallelogram-Height" placeholder="height">
+          <span class="mr-4 ml-2">cm</span>
+          </div>
+          </div>
+          <div>
+            <p class="text-2xl">Area= <span id="Parallelogram-Area"></span><span> cm<sup>2</sup></span></p>
+          </div>
+          <div class="card-actions justify-end">
+            <button onclick="calculateParallelogramArea()" class="btn btn-primary w-full">Calculate</button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <script>
+        
+
+function getInputValueById (inputFieldId) {
+    const inputField = document.getElementById(inputFieldId);
+    const inputTextValue = inputField.value;
+    const inputValue = parseFloat(inputTextValue);
+
+    return inputValue;
+}
+
+function dusplayFunction(elementId, area){
+
+    const element = document.getElementById(elementId);
+    element.innerText = area;
+}
+
+function calculateParallelogramArea (){
+
+    const base = getInputValueById('Parallelogram-Base');
+    console.log("base is " , base);
+
+    const height = getInputValueById('Parallelogram-Height');
+    console.log("height is " , height);
+
+    const area = base * height;
+    console.log("area is " , area);
+
+    dusplayFunction('Parallelogram-Area' , area);
+}
+
+
+      </script>
+</body>
+</html>
